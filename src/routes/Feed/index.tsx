@@ -30,7 +30,7 @@ const Feed: React.FC<Props> = () => {
         <TagList />
         <ProfileCard />
         {*/<ServiceCard />*/}
-        <ContactCard />*/}
+        <ContactCard />
       </div>
       <div className="mid">
         <MobileProfileCard />
@@ -139,6 +139,7 @@ const StyledWrapper = styled.div`
     }
   }
 `
+
 
 
 
