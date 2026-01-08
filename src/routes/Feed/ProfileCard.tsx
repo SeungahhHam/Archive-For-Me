@@ -16,7 +16,7 @@ const ProfileCard: React.FC<Props> = () => {
         {/*<div className="top">
          <Image src={CONFIG.profile.image} fill alt="" />
         </div>*/}
-        <div className="top" style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '12px' }}>
+        <div className="top" style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '12px' height: '28px' }}>
           {/* Oracle */}
           <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="Oracle" />
           {/* PostgreSQL (PG) */}
@@ -29,6 +29,17 @@ const ProfileCard: React.FC<Props> = () => {
           <div className=" name">{CONFIG.profile.name}</div>
           <div className="role">{CONFIG.profile.role}</div>
           <div className="text-sm mb-2">{CONFIG.profile.bio}</div>
+          <div className="email">{CONFIG.profile.email && (
+            <a
+              href={`mailto:${CONFIG.profile.email}`}
+              rel="noreferrer"
+              target="_blank"
+              css={{ overflow: "hidden" }}
+            >
+              <AiOutlineMail className="icon" />
+              <div className="name">saham7532@naver.com</div>
+            </a>
+        )}</div>
         </div>
       </div>
     </StyledWrapper>
@@ -57,11 +68,15 @@ const StyledWrapper = styled.div`
     .top {
       position: relative;
       width: 100%;
-      &:after {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+      /* &:after {
         content: "";
         display: block;
         padding-bottom: 100%;
-      }
+      } */
     }
     .mid {
       display: flex;
