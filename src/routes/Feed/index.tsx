@@ -95,7 +95,7 @@ const StyledWrapper = styled.div`
     grid-column: span 12 / span 12;
 
     @media (min-width: 1024px) {
-      grid-column: span 7 / span 7;
+      grid-column: span 10 / span 10;
     }
 
     > .tags {
@@ -127,8 +127,8 @@ const StyledWrapper = styled.div`
     top: ${HEADER_HEIGHT - 10}px;
 
     @media (min-width: 1024px) {
-      display: block;
-      grid-column: span 3 / span 3;
+      display: none;
+      grid-column: span 0 / span 0;
     }
 
     .footer {
@@ -136,3 +136,4 @@ const StyledWrapper = styled.div`
     }
   }
 `
+
