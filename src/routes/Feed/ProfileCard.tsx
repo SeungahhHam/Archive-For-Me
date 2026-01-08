@@ -16,6 +16,15 @@ const ProfileCard: React.FC<Props> = () => {
         {/*<div className="top">
          <Image src={CONFIG.profile.image} fill alt="" />
         </div>*/}
+        <div className="top" style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '12px' }}>
+          {/* Oracle */}
+          <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="Oracle" />
+          {/* PostgreSQL (PG) */}
+          <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+          {/* MSSQL */}
+          <img src="https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white" alt="MSSQL" />
+          {/* EX <img src="https://img.shields.io/badge/이름-색상코드?style=for-the-badge&logo=아이콘명&logoColor=white" /> */}
+        </div>
         <div className="mid">
           <div className=" name">{CONFIG.profile.name}</div>
           <div className="role">{CONFIG.profile.role}</div>
