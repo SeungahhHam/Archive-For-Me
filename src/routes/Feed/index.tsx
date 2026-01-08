@@ -110,7 +110,7 @@ const StyledWrapper = styled.div`
     }
 
     > .footer {
-      padding-bottom: 2rem;
+      padding-bottom: 10rem;
       @media (min-width: 1024px) {
         display: none;
       }
@@ -139,5 +139,6 @@ const StyledWrapper = styled.div`
     }
   }
 `
+
 
 
