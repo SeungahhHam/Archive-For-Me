@@ -18,8 +18,8 @@ const CONFIG = {
   ],
   // blog setting (required)
   blog: {
-    title: "Seungah Ham",
-    description: "Archive For ME",
+    title: "Archive For ME",
+    description: "Archive About IT",
     scheme: "system", // 'light' | 'dark' | 'system'
   },
 
