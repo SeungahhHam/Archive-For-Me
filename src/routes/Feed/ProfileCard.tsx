@@ -16,7 +16,7 @@ const ProfileCard: React.FC<Props> = () => {
         {/*<div className="top">
          <Image src={CONFIG.profile.image} fill alt="" />
         </div>*/}
-        <div className="top" style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '12px', height: '28px' }}>
+        <div className="top" style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '12px' }}>
           {/* Oracle */}
           <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="Oracle" />
           {/* PostgreSQL (PG) */}
