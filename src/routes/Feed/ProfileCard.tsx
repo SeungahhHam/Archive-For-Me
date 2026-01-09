@@ -1,6 +1,12 @@
 import styled from "@emotion/styled"
 import Image from "next/image"
 import React from "react"
+import {
+  AiFillLinkedin,
+  AiOutlineGithub,
+  AiOutlineInstagram,
+  AiOutlineMail,
+} from "react-icons/ai"
 import { CONFIG } from "site.config"
 import { Emoji } from "src/components/Emoji"
 
