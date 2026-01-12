@@ -29,7 +29,7 @@ async function getPageProperties(
       case "file": {
         try {
           const Block = block?.[id].value
-          const url: string = val[0][1][0][1]
+          const url: string = (val as any)[0][1][0][1]
           const newurl = customMapImageUrl(url, Block)
           properties[name] = newurl
         } catch (error) {
