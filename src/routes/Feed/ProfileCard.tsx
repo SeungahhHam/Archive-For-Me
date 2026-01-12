@@ -2,9 +2,6 @@ import styled from "@emotion/styled"
 import Image from "next/image"
 import React from "react"
 import {
-  AiFillLinkedin,
-  AiOutlineGithub,
-  AiOutlineInstagram,
   AiOutlineMail,
 } from "react-icons/ai"
 import { CONFIG } from "site.config"
@@ -19,33 +16,39 @@ const ProfileCard: React.FC<Props> = () => {
         <Emoji></Emoji> Profile
       </div>
       <div className="content">
-        {/*<div className="top">
-         <Image src={CONFIG.profile.image} fill alt="" />
-        </div>*/}
-        <div className="top" style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '12px' }}>
-          {/* Oracle */}
-          <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="Oracle" style={{ height: '28px' }} />
-          {/* PostgreSQL (PG) */}
-          <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" style={{ height: '28px' }} />
-          {/* MSSQL */}
-          <img src="https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white" alt="MSSQL" style={{ height: '28px' }} />
-          {/* EX <img src="https://img.shields.io/badge/이름-색상코드?style=for-the-badge&logo=아이콘명&logoColor=white" style={{ height: '28px' }} /> */}
+        {/* 기술 스택 뱃지 영역 */}
+        <div className="top">
+          <img 
+            src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white" 
+            alt="Oracle" 
+          />
+          <img 
+            src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" 
+            alt="PostgreSQL" 
+          />
+          <img 
+            src="https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white" 
+            alt="MSSQL" 
+          />
         </div>
+        
         <div className="mid">
-          <div className=" name">{CONFIG.profile.name}</div>
+          <div className="name">{CONFIG.profile.name}</div>
           <div className="role">{CONFIG.profile.role}</div>
           <div className="text-sm mb-2">{CONFIG.profile.bio}</div>
-          <div className="email">{CONFIG.profile.email && (
-            <a
-              href={`mailto:${CONFIG.profile.email}`}
-              rel="noreferrer"
-              target="_blank"
-              css={{ overflow: "hidden" }}
-            >
-              <AiOutlineMail className="icon" />
-              <div className="name">saham7532@naver.com</div>
-            </a>
-        )}</div>
+          <div className="email">
+            {CONFIG.profile.email && (
+              <a
+                href={`mailto:${CONFIG.profile.email}`}
+                rel="noreferrer"
+                target="_blank"
+                css={{ overflow: "hidden" }}
+              >
+                <AiOutlineMail className="icon" />
+                <div className="name">{CONFIG.profile.email}</div>
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </StyledWrapper>
@@ -71,19 +74,23 @@ const StyledWrapper = styled.div`
     @media (min-width: 1024px) {
       padding: 1rem;
     }
+    
     .top {
-      position: relative;
-      width: 100%;
       display: flex;
       flex-wrap: wrap;
+      justify-content: center; /* 뱃지들을 중앙 정렬 */
       gap: 6px;
       margin-bottom: 12px;
-      /* &:after {
-        content: "";
-        display: block;
-        padding-bottom: 100%;
-      } */
+      
+      /* 모든 뱃지 이미지의 높이를 여기서 한 번에 고정합니다 */
+      img {
+        height: 28px;
+        width: auto;
+      }
+
+      /* 기존 정사각형 유지용 코드는 이제 필요 없으므로 제거하거나 무시됩니다 */
     }
+
     .mid {
       display: flex;
       padding: 0.5rem;
@@ -101,11 +108,23 @@ const StyledWrapper = styled.div`
         line-height: 1.25rem;
         color: ${({ theme }) => theme.colors.gray11};
       }
-      .bio {
-        margin-bottom: 0.5rem;
-        font-size: 0.875rem;
-        line-height: 1.25rem;
+      .email {
+        width: 100%;
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.25rem;
+          color: ${({ theme }) => theme.colors.gray11};
+          .icon {
+            flex-shrink: 0;
+          }
+          .name {
+            font-size: 0.875rem;
+            font-style: normal;
+            font-weight: 400;
+          }
+        }
       }
     }
   }
-`
