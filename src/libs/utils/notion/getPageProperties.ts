@@ -24,7 +24,7 @@ async function getPageProperties(
 
     switch (type) {
       case "checkbox":
-        properties[name] = getTextContent(val) === "Yes"
+        properties[name] = getTextContent(val as any) === "Yes"
         break
       case "file": {
         try {
@@ -38,14 +38,14 @@ async function getPageProperties(
         break
       }
       case "date": {
-        const dateProperty: any = getDateValue(val)
+        const dateProperty: any = getDateValue(val as any)
         if (dateProperty) delete dateProperty.type
         properties[name] = dateProperty
         break
       }
       case "select":
       case "multi_select": {
-        const selects = getTextContent(val)
+        const selects = getTextContent(val as any)
         if (selects?.length) {
           properties[name] = selects.split(",").map(s => s.trim())
         }
