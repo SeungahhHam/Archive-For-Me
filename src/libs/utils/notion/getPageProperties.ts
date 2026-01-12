@@ -18,7 +18,7 @@ async function getPageProperties(
     const name = schema[key]?.name
 
     if (type && !customTypes.includes(type)) {
-      properties[name] = getTextContent(val)
+      properties[name] = getTextContent(val as any)
       continue
     }
 
