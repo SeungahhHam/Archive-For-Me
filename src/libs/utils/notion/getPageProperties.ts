@@ -14,7 +14,7 @@ async function getPageProperties(
   const properties: any = { id }
 
   for (const [key, val] of rawProperties) {
-    const type = schema[key]?.type
+    const type = schema[key]?.type as any
     const name = schema[key]?.name
 
     if (type && !customTypes.includes(type)) {
