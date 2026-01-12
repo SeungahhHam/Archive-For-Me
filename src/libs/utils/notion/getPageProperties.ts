@@ -53,13 +53,13 @@ async function getPageProperties(
       }
       case "formula": {
         // 수식 결과가 문자열인 경우와 숫자인 경우를 모두 대응합니다.
-        const formulaValue = val[0]?.[0]
+        const formulaValue = (val as any)[0]?.[0]
         properties[name] = formulaValue || ""
         break
       }
       case "relation": {
         // 관계형 페이지의 제목들을 배열로 추출합니다.
-        const relations = val
+        const relations = (val as any)
           .filter((item: any) => item[0] !== ",")
           .map((item: any) => item[1]?.[0]?.[0] || item[0])
           .filter(Boolean)
@@ -67,7 +67,7 @@ async function getPageProperties(
         break
       }
       case "person": {
-        const rawUsers = val.flat()
+        const rawUsers = (val as any).flat()
         const users = []
         for (let i = 0; i < rawUsers.length; i++) {
           if (rawUsers[i][0][1]) {
