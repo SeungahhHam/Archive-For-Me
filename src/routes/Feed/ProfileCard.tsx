@@ -131,3 +131,4 @@ const StyledWrapper = styled.div`
       }
     }
   }
+`
