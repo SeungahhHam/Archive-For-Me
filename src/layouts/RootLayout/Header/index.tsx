@@ -35,18 +35,25 @@ const StyledWrapper = styled.div`
 
   .container {
     display: flex;
-    padding-left: 1rem;
-    padding-right: 1rem;
     justify-content: space-between;
     align-items: center;
+    
     width: 100%;
-    max-width: 1120px;
+    /* 1. max-width를 100%로 변경하여 모니터 끝까지 확장 */
+    max-width: 100%; 
+    
     height: 3rem;
     margin: 0 auto;
+    
+    /* 2. 양 끝에 너무 붙지 않도록 적절한 기본 패딩 유지 */
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    /* fullWidth 옵션이 true일 때만 더 넓은 패딩 적용 */
     &[data-full-width="true"] {
       @media (min-width: 768px) {
-        padding-left: 6rem;
-        padding-right: 6rem;
+        padding-left: 2rem; /* 혹은 원하시는 만큼 늘려주세요 */
+        padding-right: 2rem;
       }
     }
     .nav {
