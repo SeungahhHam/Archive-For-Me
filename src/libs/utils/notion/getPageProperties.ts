@@ -50,6 +50,18 @@ async function getPageProperties(
           }
           break
         }
+        case "relation": {
+          // 관계형 속성에서 연결된 페이지들의 제목(Title)만 추출합니다.
+          const relations = val
+            .filter((item: any) => item[0] !== ",") // 쉼표 제외
+            .map((item: any) => item[1]?.[0]?.[0] || item[0]) // 텍스트 내용만 추출
+            .filter(Boolean);
+
+          // 만약 단순 문자열(string)로 가져오고 싶다면 .join(", ")을 사용하세요.
+          // 여기서는 활용도가 높은 배열 형태로 반환하도록 설정합니다.
+          properties[schema[key].name] = relations; 
+          break
+        }
         case "person": {
           const rawUsers = val.flat()
 
