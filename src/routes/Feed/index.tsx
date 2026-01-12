@@ -27,10 +27,10 @@ const Feed: React.FC<Props> = () => {
           height: `calc(100vh - ${HEADER_HEIGHT}px)`,
         }}
       >
-        <ProfileCard /> {/* 프로필을 맨 위로 */}
+        <ProfileCard /> 
         <ContactCard />
-        <TagList />
-        {/* <ServiceCard /> 여기에 별표 순서를 맞춰서 주석 처리했습니다 */}
+        {/* <TagList />
+            <ServiceCard /> */}
       </div>
       <div className="mid">
         <MobileProfileCard />
@@ -139,6 +139,7 @@ const StyledWrapper = styled.div`
     }
   }
 `
+
 
 
 
