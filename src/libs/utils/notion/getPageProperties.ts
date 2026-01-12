@@ -10,7 +10,7 @@ async function getPageProperties(
 ) {
   const api = new NotionAPI()
   const rawProperties = Object.entries(block?.[id]?.value?.properties || [])
-  const customTypes = ["date", "select", "multi_select", "person", "file", "formula", "relation", "checkbox"]
+  const customTypes = ["date", "select", "multi_select", "person", "file", "formula", "relation", "checkbox", "rollup"]
   const properties: any = { id }
 
   for (const [key, val] of rawProperties) {
@@ -55,6 +55,18 @@ async function getPageProperties(
         // 수식 결과가 문자열인 경우와 숫자인 경우를 모두 대응합니다.
         const formulaValue = (val as any)[0]?.[0]
         properties[name] = formulaValue || ""
+        break
+      }
+      case "rollup": {
+        // 롤업 데이터에서 텍스트 내용만 추출합니다.
+        // 관계형으로 가져온 여러 개의 값을 쉼표로 구분된 문자열로 변환하거나 배열로 저장할 수 있습니다.
+        const rollupContent = getTextContent(val as any)
+        if (rollupContent) {
+          // 만약 롤업 결과가 여러 개라면 배열로 만듭니다 (예: "Oracle, TIBERO" -> ["Oracle", "TIBERO"])
+          properties[name] = rollupContent.split(",").map((s) => s.trim())
+        } else {
+          properties[name] = []
+        }
         break
       }
       case "relation": {
