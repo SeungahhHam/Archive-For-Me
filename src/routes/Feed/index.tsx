@@ -28,9 +28,9 @@ const Feed: React.FC<Props> = () => {
         }}
       >
         <ProfileCard /> 
-        <ContactCard />
-        {/* <TagList />
-            <ServiceCard /> */}
+        <TagList />
+        {/* <ContactCard />
+         <ServiceCard /> */}
       </div>
       <div className="mid">
         <MobileProfileCard />
