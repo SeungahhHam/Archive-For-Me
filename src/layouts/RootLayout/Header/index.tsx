@@ -13,10 +13,12 @@ const Header: React.FC<Props> = ({ fullWidth }) => {
     <StyledWrapper>
       <div data-full-width={fullWidth} className="container">
         <Logo />
-        <div className="nav">
-          <ThemeToggle />
-          <NavBar />
-        </div>
+        <ThemeToggle />
+       {/* <div className="nav">
+        <ThemeToggle />
+        <NavBar />
+       </div> 
+      */}
       </div>
     </StyledWrapper>
   )
