@@ -50,6 +50,11 @@ async function getPageProperties(
           }
           break
         }
+        case "formula": {
+          const formulaValue = val[0]?.[0]; // 수식의 결과값을 가져옵니다.
+          properties[schema[key].name] = formulaValue || "";
+          break
+        }
         case "relation": {
           // 관계형 속성에서 연결된 페이지들의 제목(Title)만 추출합니다.
           const relations = val
