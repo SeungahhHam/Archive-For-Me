@@ -10,7 +10,7 @@ async function getPageProperties(
 ) {
   const api = new NotionAPI()
   const rawProperties = Object.entries(block?.[id]?.value?.properties || [])
-  console.log("[Notion][rawProperties]", rawProperties[0])
+  //console.log("[Notion][rawProperties]", rawProperties[0])
   
   const [key, value] = rawProperties[0] || []
   console.log("[Notion][property key]", key)
@@ -24,6 +24,7 @@ async function getPageProperties(
     const name = schema[key]?.name
 
     if (type && !customTypes.includes(type)) {
+      console.log("[Notion][Type Debug]", key)
       properties[name] = getTextContent(val as any)
       continue
     }
