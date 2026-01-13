@@ -113,8 +113,8 @@ async function getPageProperties(
         break
     }
   }
-  return properties
   console.log("[Notion][Properties Debug]", properties)
+  return properties
 }
 
 export { getPageProperties as default }
