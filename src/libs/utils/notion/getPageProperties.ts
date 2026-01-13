@@ -61,19 +61,19 @@ async function getPageProperties(
       }
       case "formula": {
         // val이 어떤 복잡한 구조로 되어 있든, 텍스트 내용만 쏙 뽑아줍니다.
-        //const formulaValue = getTextContent(val as any)
-        //properties[name] = formulaValue || ""
+        const formulaValue = getTextContent(val as any)
+        properties[name] = formulaValue || ""
 
         // 수식인데 태그로 쓰일 경우, multi_select처럼 배열로 쪼개주는 로직이 추가로 필요합니다.
-        if (name === "tags" || name === "category") {
-          const selects = getTextContent(val as any)
-          properties[name] = selects?.length
-            ? selects.split(",").map(s => s.trim())
-            : []
-        } else {
+        //if (name === "tags" || name === "category") {
+        //  const selects = getTextContent(val as any)
+        //  properties[name] = selects?.length
+        //    ? selects.split(",").map(s => s.trim())
+        //    : []
+        //} else {
           // 일반 formula는 단일 값 유지
-          properties[name] = getTextContent(val as any) || ""
-        }
+        //  properties[name] = getTextContent(val as any) || ""
+        //}
         break
       }
       case "rollup": {
