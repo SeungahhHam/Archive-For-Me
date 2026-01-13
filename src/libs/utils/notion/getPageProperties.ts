@@ -29,8 +29,14 @@ async function getPageProperties(
     }
 
     // console.log("[Notion][propertie]", type, name, getTextContent(val as any))
-    console.log("[Notion][Type Debug]", type)
-    console.log("[Notion][Content Debug]", getTextContent(val as any))
+    //console.log("[Notion][Type Debug]", type)
+    //console.log("[Notion][Content Debug]", getTextContent(val as any))
+    console.log("[DEBUG][loop]", {
+      key,
+      name,
+      type,
+      value: getTextContent(val as any),
+    })
 
     switch (type) {
       case "checkbox":
