@@ -10,11 +10,8 @@ async function getPageProperties(
 ) {
   const api = new NotionAPI()
   const rawProperties = Object.entries(block?.[id]?.value?.properties || [])
-  //console.log("[Notion][rawProperties]", rawProperties[0])
   
   const [key, value] = rawProperties[0] || []
-  console.log("[Notion][property key]", key)
-  console.log("[Notion][property value]", JSON.stringify(value, null, 2))
   
   const customTypes = ["date", "select", "multi_select", "person", "file", "formula", "relation", "checkbox", "rollup"]
   const properties: any = { id }
@@ -27,16 +24,6 @@ async function getPageProperties(
       properties[name] = getTextContent(val as any)
       continue
     }
-
-    // console.log("[Notion][propertie]", type, name, getTextContent(val as any))
-    //console.log("[Notion][Type Debug]", type)
-    //console.log("[Notion][Content Debug]", getTextContent(val as any))
-    console.log("[DEBUG][loop]", {
-      key,
-      name,
-      type,
-      value: getTextContent(val as any),
-    })
 
     switch (type) {
       case "checkbox":
@@ -128,7 +115,6 @@ async function getPageProperties(
         break
     }
   }
-  console.log("[Notion][Properties Debug]", properties)
   return properties
 }
 
