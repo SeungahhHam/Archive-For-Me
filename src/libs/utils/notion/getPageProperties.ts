@@ -64,7 +64,7 @@ async function getPageProperties(
             : []
         } else {
           // 일반 formula는 단일 값 유지
-          properties[name] = getTextContent(val) || ""
+          properties[name] = getTextContent(val as any) || ""
         }
         break
       }
