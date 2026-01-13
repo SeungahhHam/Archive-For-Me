@@ -55,6 +55,13 @@ async function getPageProperties(
         // val이 어떤 복잡한 구조로 되어 있든, 텍스트 내용만 쏙 뽑아줍니다.
         const formulaValue = getTextContent(val as any)
         properties[name] = formulaValue || ""
+
+        // 수식인데 태그로 쓰일 경우, multi_select처럼 배열로 쪼개주는 로직이 추가로 필요합니다.
+        if (name === "tags" || name === "category") {
+         properties[name] = formulaValue.split(",").map(s => s.trim()).filter(Boolean)
+       } else {
+         properties[name] = formulaValue
+       }
         break
       }
       case "rollup": {
