@@ -5,7 +5,6 @@ export function getAllSelectItemsFromPosts(
   posts: TPosts
 ) {
   const selectedPosts = posts.filter((post) => post?.[key])
-  console.log(selectedPosts)
   const items = [...selectedPosts.map((p) => p[key]).flat()]
   const itemObj: { [itemName: string]: number } = {}
   items.forEach((item) => {
