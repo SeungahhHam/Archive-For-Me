@@ -10,6 +10,7 @@ async function getPageProperties(
 ) {
   const api = new NotionAPI()
   const rawProperties = Object.entries(block?.[id]?.value?.properties || [])
+  console.log("[DEBUG][rawProperties]", rawProperties)
   const customTypes = ["date", "select", "multi_select", "person", "file", "formula", "relation", "checkbox", "rollup"]
   const properties: any = { id }
 
