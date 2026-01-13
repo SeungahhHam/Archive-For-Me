@@ -52,8 +52,8 @@ async function getPageProperties(
         break
       }
       case "formula": {
-        // 수식 결과가 문자열인 경우와 숫자인 경우를 모두 대응합니다.
-        const formulaValue = (val as any)[0]?.[0]
+        // val이 어떤 복잡한 구조로 되어 있든, 텍스트 내용만 쏙 뽑아줍니다.
+        const formulaValue = getTextContent(val as any)
         properties[name] = formulaValue || ""
         break
       }
