@@ -58,10 +58,12 @@ async function getPageProperties(
 
         // 수식인데 태그로 쓰일 경우, multi_select처럼 배열로 쪼개주는 로직이 추가로 필요합니다.
         if (name === "tags" || name === "category") {
-         properties[name] = formulaValue.split(",").map(s => s.trim()).filter(Boolean)
-       } else {
+          properties[name] = formulaValue 
+          ? formulaValue.split(",").map((s) => s.trim()).filter(Boolean) 
+          : []
+        } else {
          properties[name] = formulaValue
-       }
+        }
         break
       }
       case "rollup": {
