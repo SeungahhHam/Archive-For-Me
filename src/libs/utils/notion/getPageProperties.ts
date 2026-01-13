@@ -23,6 +23,8 @@ async function getPageProperties(
       continue
     }
 
+    console.log("[Notion][propertie]", type, name, getTextContent(val as any))
+
     switch (type) {
       case "checkbox":
         properties[name] = getTextContent(val as any) === "Yes"
