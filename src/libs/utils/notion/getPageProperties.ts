@@ -114,7 +114,7 @@ async function getPageProperties(
     }
   }
   return properties
-  console.log("[Notion][Properties Debug]", JSON.stringify(properties, null, 2))
+  console.log("[Notion][Properties Debug]", properties)
 }
 
 export { getPageProperties as default }
