@@ -24,12 +24,12 @@ async function getPageProperties(
     const name = schema[key]?.name
 
     if (type && !customTypes.includes(type)) {
-      console.log("[Notion][Type Debug]", key)
       properties[name] = getTextContent(val as any)
       continue
     }
 
     // console.log("[Notion][propertie]", type, name, getTextContent(val as any))
+    console.log("[Notion][Type Debug]", type)
 
     switch (type) {
       case "checkbox":
